@@ -17,7 +17,7 @@ void loop() {
     delay(10);
   }
 
-  for (int position = 0; position >= 0; position--)
+  for (int position = 180; position >= 0; position--)
   {
     myservo.write(position);
     delay(10);
