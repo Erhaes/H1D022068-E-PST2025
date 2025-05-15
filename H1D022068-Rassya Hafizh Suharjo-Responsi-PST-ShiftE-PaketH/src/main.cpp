@@ -1,22 +1,20 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-// kode ultrasonik
+// pin ultrasonik
 int echoPin = D2;
 int trigPin = D3;
 
-// led
+// pin led
 int redLED = D4;
 int greenLED = D5;
 
-// jarak dan waktu ultasonik
+// variabel jarak dan waktu ultasonik
 long duration;
 int distance;
 
-
 // servo
 Servo myservo;
-
 
 
 void setup() {
@@ -54,31 +52,31 @@ void loop() {
     digitalWrite(redLED,LOW);
     digitalWrite(greenLED,HIGH);
 
-    // servo
+    // pembuka kandang 90 derajat
     for (int position = 0; position <= 90; position++)
     {
       myservo.write(position);
-      delay(10);
+      delay(5);
     }
 
 
     Serial.println("Kandang Terbuka");
-    delay(10000);
+    delay(1000);
 
   }else{
     digitalWrite(greenLED,LOW);
     digitalWrite(redLED,HIGH);
 
-    // servo
+    // penutup kandang
     for (int position = 90; position >= 0; position--)
     {
       myservo.write(position);
-      delay(10);
+      delay(5);
     }
     Serial.println("Kandang Tertutup");
-    delay(10000);
+    delay(1000);
   }
-  delay(500);
+  delay(100);
   // penutup
   
 }
